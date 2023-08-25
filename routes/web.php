@@ -22,7 +22,7 @@ Route::resource('post', PostController::class);
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('top');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
