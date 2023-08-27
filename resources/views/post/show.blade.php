@@ -10,11 +10,20 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mx-4 sm:p-8">
             <div class="px-10 mt-4">
-                <div class="bg-white w-full  rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500">
+                {{-- 修正部分 --}}
+                <div
+                    class="bg-white w-full  rounded-2xl px-10 pt-2 pb-8 shadow-lg hover:shadow-2xl transition duration-500">
                     <div class="mt-4">
-                        <h1 class="text-lg text-gray-700 font-semibold hover:underline cursor-pointer">
-                            <a href="{{ route('post.show', $post) }}">{{ $post->title }}</a>
-                        </h1>
+                        <div class="flex">
+                            <div class="rounded-full w-12 h-12">
+                                {{-- アバター表示 --}}
+                                <img src="{{ asset('storage/avatar/' . ($post->user->avatar ?? 'user_default.jpg')) }}">
+                            </div>
+                            <h1 class="text-lg text-gray-700 font-semibold float-left pt-4">
+                                {{ $post->title }}
+                            </h1>
+                        </div>
+                        {{-- 修正部分ここまで --}}
                         <hr class="w-full">
                     </div>
                     <div class="flex justify-end mt-4">
@@ -23,12 +32,12 @@
                                     class="bg-teal-700 float-right">編集</x-primary-button></a>
                         @endcan
                         @can('delete', $post)
-                        <form method="post" action="{{ route('post.destroy', $post) }}">
-                            @csrf
-                            @method('delete')
-                            <x-primary-button class="bg-red-700 float-right ml-4"
-                                onClick="return confirm('本当に削除しますか？');">削除</x-primary-button>
-                        </form>
+                            <form method="post" action="{{ route('post.destroy', $post) }}">
+                                @csrf
+                                @method('delete')
+                                <x-primary-button class="bg-red-700 float-right ml-4"
+                                    onClick="return confirm('本当に削除しますか？');">削除</x-primary-button>
+                            </form>
                         @endcan
                     </div>
 
@@ -47,10 +56,17 @@
                     </div>
                     {{-- コメント表示 --}}
                     @foreach ($post->comments as $comment)
-                        <div class="bg-white w-full  rounded-2xl px-10 py-2 shadow-lg mt-8 whitespace-pre-line">
+                        <div class="bg-white w-full  rounded-2xl px-10 py-8 shadow-lg mt-8 whitespace-pre-line">
                             {{ $comment->body }}
                             <div class="text-sm font-semibold flex flex-row-reverse">
-                                <p> {{ $comment->user->name }} • {{ $comment->created_at->diffForHumans() }}</p>
+                                {{-- クラスを変更 --}}
+                                <p class="float-left pt-4"> {{ $comment->user->name }} •
+                                    {{ $comment->created_at->diffForHumans() }}</p>
+                                {{-- アバター追加 --}}
+                                <span class="rounded-full w-12 h-12">
+                                    <img
+                                        src="{{ asset('storage/avatar/' . ($comment->user->avatar ?? 'user_default.jpg')) }}">
+                                </span>
                             </div>
                         </div>
                     @endforeach
