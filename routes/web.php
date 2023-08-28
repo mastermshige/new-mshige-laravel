@@ -16,6 +16,7 @@ use App\Http\Controllers\ContactController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 })->name('top');
@@ -29,7 +30,7 @@ Route::get('contact/create', [ContactController::class, 'create'])->name('contac
 Route::post('contact/store', [ContactController::class, 'store'])->name('contact.store');
 
 // ログイン後の通常のユーザー画面
-Route::middleware(['verified'])->group(function(){
+Route::middleware(['verified'])->group(function () {
     Route::get('post/mypost', [PostController::class, 'mypost'])->name('post.mypost');
     Route::get('post/mycomment', [PostController::class, 'mycomment'])->name('post.mycomment');
     Route::resource('post', PostController::class);
@@ -38,9 +39,11 @@ Route::middleware(['verified'])->group(function(){
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // 管理者用画面
-    Route::middleware(['auth', 'can:admin'])->group(function () {
+    Route::middleware(['can:admin'])->group(function () {
         Route::get('profile/index', [ProfileController::class, 'index'])->name('profile.index');
+        Route::get('/profile/adedit/{user}', [ProfileController::class, 'adedit'])->name('profile.adedit');
+        Route::patch('/profile/adupdate/{user}', [ProfileController::class, 'adupdate'])->name('profile.adupdate');
     });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
