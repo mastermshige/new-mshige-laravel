@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,9 @@ Route::middleware(['verified'])->group(function () {
         Route::get('profile/index', [ProfileController::class, 'index'])->name('profile.index');
         Route::get('/profile/adedit/{user}', [ProfileController::class, 'adedit'])->name('profile.adedit');
         Route::patch('/profile/adupdate/{user}', [ProfileController::class, 'adupdate'])->name('profile.adupdate');
+        // 追加
+        Route::patch('roles/{user}/attach', [RoleController::class, 'attach'])->name('role.attach');
+        Route::patch('roles/{user}/detach', [RoleController::class, 'detach'])->name('role.detach');
     });
 });
 
