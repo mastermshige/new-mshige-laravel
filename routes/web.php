@@ -49,8 +49,8 @@ Route::middleware(['verified'])->group(function () {
         Route::patch('roles/{user}/attach', [RoleController::class, 'attach'])->name('role.attach');
         Route::patch('roles/{user}/detach', [RoleController::class, 'detach'])->name('role.detach');
         // 追加
-        Route::patch('roles/{user}/attach', [RoleController::class, 'attach'])->name('role.attach');
-        Route::patch('roles/{user}/detach', [RoleController::class, 'detach'])->name('role.detach');
+        // Route::patch('roles/{user}/attach', [RoleController::class, 'attach'])->name('role.attach');
+        // Route::patch('roles/{user}/detach', [RoleController::class, 'detach'])->name('role.detach');
     });
 });
 
