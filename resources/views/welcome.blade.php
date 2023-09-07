@@ -3,11 +3,14 @@
         <div class="container pt-10 md:pt-18 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center bg-yellow-50">
             <!--左側-->
             <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden ">
+                <div class="mb-16 mt-0">
+                <video src="{{ asset('storage/images/fall-win.mp4') }}" controls autoplay muted></video>
+                </div>
                 <h1
                     class="my-4 text-3xl md:text-5xl text-green-800 font-bold leading-tight text-center md:text-left slide-in-bottom-h1">
                     mshigeの部屋</h1>
                 <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">
-                    仕事や勉強の合間に、コードと格闘中のアマチュアプログラマのオアシスです。プログラミング以外の話題もウェルカム♪
+                    仕事や勉強の合間に、コードと格闘中のアマチュアプログラマです。プログラミング以外の話題こそむしろウェルカム♪
                 </p>
 
                 <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center md:text-left fade-in">
@@ -35,7 +38,7 @@
             </div>
             <!--フッタ-->
             <div class="w-full pt-10 pb-6 text-sm md:text-left fade-in">
-                <p class="text-gray-500 text-center">@2023 Laravelの教科書サンプル</p>
+                <p class="text-gray-500 text-center">@2023 mshigeの部屋</p>
             </div>
         </div>
     </div>
