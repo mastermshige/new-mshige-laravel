@@ -2,10 +2,10 @@
     <div class="h-screen pb-14 bg-right bg-cover">
         <div class="container pt-10 md:pt-18 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center bg-yellow-50">
             <!--左側-->
-            <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden ">
-                <div class="mb-16 mt-0">
+            <div class="mb-3 mt-1">
                 <video src="{{ asset('storage/images/fall-win.mp4') }}" controls autoplay muted></video>
                 </div>
+            <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden ">
                 <h1
                     class="my-4 text-3xl md:text-5xl text-green-800 font-bold leading-tight text-center md:text-left slide-in-bottom-h1">
                     mshigeの部屋</h1>
