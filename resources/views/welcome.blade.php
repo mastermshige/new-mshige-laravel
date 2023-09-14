@@ -2,7 +2,7 @@
     <div class="h-screen pb-14 bg-right bg-cover">
         <div class="container pt-10 md:pt-18 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center bg-yellow-50">
             <!--左側-->
-            <div class="mb-3 mt-1">
+            <div class="mb-3 mt-1 mx-auto">
                 <video src="{{ asset('storage/images/fall-win.mp4') }}" controls autoplay muted></video>
                 </div>
             <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden ">
